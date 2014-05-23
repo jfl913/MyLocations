@@ -7,8 +7,9 @@
 //
 
 #import "LocationDetailsViewController.h"
+#import "CategoryPickerViewController.h"
 
-@interface LocationDetailsViewController ()
+@interface LocationDetailsViewController () <UITextViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextView *descriptionTextView;
 @property (nonatomic, weak) IBOutlet UILabel *categoryLabel;
@@ -20,15 +21,45 @@
 @end
 
 @implementation LocationDetailsViewController
+{
+    NSString *_descriptionText;
+    NSString *_categoryName;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        _descriptionText = @"";
+        _categoryName = @"No Category";
+    }
+    
+    return self;
+}
 
 - (IBAction)done:(id)sender
 {
+    NSLog(@"_descriptionText: %@", _descriptionText);
     [self closeScreen];
 }
 
 - (IBAction)cancel:(id)sender
 {
     [self closeScreen];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"PickCategory"]) {
+        CategoryPickerViewController *categoryPickerViewController = segue.destinationViewController;
+        categoryPickerViewController.selectedCategoryName = _categoryName;
+    }
+}
+
+- (IBAction)categoryPickerDidPickCategory:(UIStoryboardSegue *)segue
+{
+    CategoryPickerViewController *categoryPickerViewController = segue.sourceViewController;
+    _categoryName = categoryPickerViewController.selectedCategoryName;
+    self.categoryLabel.text = _categoryName;
 }
 
 - (void)closeScreen
@@ -49,12 +80,50 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.descriptionTextView.text = _descriptionText;
+    self.categoryLabel.text = _categoryName;
+    self.latitudeLabel.text = [NSString stringWithFormat:@"%.8f", self.coordinate.latitude];
+    self.longitudeLabel.text = [NSString stringWithFormat:@"%.8f", self.coordinate.longitude];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if (self.placemark != nil) {
+        self.addressLabel.text = [self stringFromPlacemark:self.placemark];
+    }else{
+        self.addressLabel.text = @"No Address Found";
+    }
+    
+    self.dateLabel.text = [self formatDate:[NSDate date]];
 }
+
+- (NSString *)stringFromPlacemark:(CLPlacemark *)thePlacemark
+{
+    //    NSLog(@"name: %@", thePlacemark.name);
+    //    NSLog(@"addressDictionary: %@", thePlacemark.addressDictionary);
+    //    NSLog(@"isocountrycode: %@", thePlacemark.ISOcountryCode);
+    //    NSLog(@"country: %@", thePlacemark.country);
+    //    NSLog(@"postalcode: %@", thePlacemark.postalCode);
+    //    NSLog(@"adminstrativearea: %@", thePlacemark.administrativeArea);
+    //    NSLog(@"subadministrativearea: %@", thePlacemark.subAdministrativeArea);
+    //    NSLog(@"locality: %@", thePlacemark.locality);
+    //    NSLog(@"sublocality: %@", thePlacemark.subLocality);
+    //    NSLog(@"thoroughfare: %@", thePlacemark.thoroughfare);
+    //    NSLog(@"subthoroughfare: %@", thePlacemark.subThoroughfare);
+    //    NSLog(@"region: %@", thePlacemark.region);
+    //    return [NSString stringWithFormat:@"%@ %@\n%@ %@ %@", thePlacemark.subThoroughfare, thePlacemark.thoroughfare, thePlacemark.locality, thePlacemark.administrativeArea, thePlacemark.postalCode];
+    return [NSString stringWithFormat:@"%@", thePlacemark.name];
+}
+
+- (NSString *)formatDate:(NSDate *)theDate
+{
+    static NSDateFormatter *formatter = nil;
+    if (formatter == nil) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterMediumStyle];
+        [formatter setTimeStyle:NSDateFormatterShortStyle];
+    }
+    
+    return [formatter stringFromDate:theDate];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -64,19 +133,37 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        return 88;
+    }else if (indexPath.section == 2 && indexPath.row == 2) {
+        CGRect rect = CGRectMake(100, 10, 205, 10000);
+        self.addressLabel.frame = rect;
+        [self.addressLabel sizeToFit];
+        
+        rect.size.height = self.addressLabel.frame.size.height;
+        self.addressLabel.frame = rect;
+        
+        return self.addressLabel.frame.size.height + 20;
+    }else{
+        return 44;
+    }
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//#warning Incomplete method implementation.
+//    // Return the number of rows in the section.
+//    return 0;
+//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -137,5 +224,16 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    _descriptionText = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    _descriptionText = textView.text;
+}
 
 @end

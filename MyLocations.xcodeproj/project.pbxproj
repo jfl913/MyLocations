@@ -23,6 +23,7 @@
 		013BA1ED190CED9D0003C9E2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 013BA1EB190CED9D0003C9E2 /* InfoPlist.strings */; };
 		013BA1EF190CED9D0003C9E2 /* MyLocationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 013BA1EE190CED9D0003C9E2 /* MyLocationsTests.m */; };
 		013BA1F9190E3BC10003C9E2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013BA1F8190E3BC10003C9E2 /* CoreLocation.framework */; };
+		0153D331192EF7C6000841FB /* CategoryPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0153D330192EF7C6000841FB /* CategoryPickerViewController.m */; };
 		01BC4852191F970000B08D7D /* LocationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BC4851191F970000B08D7D /* LocationDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		013BA1EC190CED9D0003C9E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		013BA1EE190CED9D0003C9E2 /* MyLocationsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyLocationsTests.m; sourceTree = "<group>"; };
 		013BA1F8190E3BC10003C9E2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0153D32F192EF7C6000841FB /* CategoryPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryPickerViewController.h; path = ../CategoryPickerViewController.h; sourceTree = "<group>"; };
+		0153D330192EF7C6000841FB /* CategoryPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryPickerViewController.m; path = ../CategoryPickerViewController.m; sourceTree = "<group>"; };
 		01BC4850191F970000B08D7D /* LocationDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailsViewController.h; sourceTree = "<group>"; };
 		01BC4851191F970000B08D7D /* LocationDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +136,8 @@
 				013BA1C7190CED9C0003C9E2 /* Supporting Files */,
 				01BC4850191F970000B08D7D /* LocationDetailsViewController.h */,
 				01BC4851191F970000B08D7D /* LocationDetailsViewController.m */,
+				0153D32F192EF7C6000841FB /* CategoryPickerViewController.h */,
+				0153D330192EF7C6000841FB /* CategoryPickerViewController.m */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 				013BA1D1190CED9C0003C9E2 /* AppDelegate.m in Sources */,
 				013BA1D7190CED9C0003C9E2 /* CurrentLocationViewController.m in Sources */,
 				013BA1CD190CED9C0003C9E2 /* main.m in Sources */,
+				0153D331192EF7C6000841FB /* CategoryPickerViewController.m in Sources */,
 				01BC4852191F970000B08D7D /* LocationDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

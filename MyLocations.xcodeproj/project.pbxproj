@@ -132,12 +132,12 @@
 				013BA1D6190CED9C0003C9E2 /* CurrentLocationViewController.m */,
 				013BA1D8190CED9C0003C9E2 /* SecondViewController.h */,
 				013BA1D9190CED9C0003C9E2 /* SecondViewController.m */,
-				013BA1DB190CED9C0003C9E2 /* Images.xcassets */,
-				013BA1C7190CED9C0003C9E2 /* Supporting Files */,
 				01BC4850191F970000B08D7D /* LocationDetailsViewController.h */,
 				01BC4851191F970000B08D7D /* LocationDetailsViewController.m */,
 				0153D32F192EF7C6000841FB /* CategoryPickerViewController.h */,
 				0153D330192EF7C6000841FB /* CategoryPickerViewController.m */,
+				013BA1DB190CED9C0003C9E2 /* Images.xcassets */,
+				013BA1C7190CED9C0003C9E2 /* Supporting Files */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";

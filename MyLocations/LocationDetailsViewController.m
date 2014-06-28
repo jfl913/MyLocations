@@ -52,6 +52,7 @@
     if ([segue.identifier isEqualToString:@"PickCategory"]) {
         CategoryPickerViewController *categoryPickerViewController = segue.destinationViewController;
         categoryPickerViewController.selectedCategoryName = _categoryName;
+        
     }
 }
 

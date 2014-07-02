@@ -93,6 +93,11 @@
     }
     
     self.dateLabel.text = [self formatDate:[NSDate date]];
+    
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard:)];
+    // 明天把它注释掉看看效果，好像使其他多点触控有效
+    gestureRecognizer.cancelsTouchesInView = NO;
+    [self.tableView addGestureRecognizer:gestureRecognizer];
 }
 
 - (NSString *)stringFromPlacemark:(CLPlacemark *)thePlacemark

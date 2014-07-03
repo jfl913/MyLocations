@@ -118,6 +118,17 @@
     return [NSString stringWithFormat:@"%@", thePlacemark.name];
 }
 
+- (void)hideKeyboard:(UITapGestureRecognizer *)gestureRecognizer
+{
+    CGPoint point = [gestureRecognizer locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
+    if (indexPath && indexPath.section == 0 && indexPath.row == 0) {
+        return;
+    }
+    
+    [self.descriptionTextView resignFirstResponder];
+}
+
 - (NSString *)formatDate:(NSDate *)theDate
 {
     static NSDateFormatter *formatter = nil;

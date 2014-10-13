@@ -11,6 +11,7 @@
 
 @interface CurrentLocationViewController ()
 
+
 @end
 
 @implementation CurrentLocationViewController
@@ -39,7 +40,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self updateLabels];
     [self configureGetButton];
 }
@@ -73,6 +73,7 @@
         LocationDetailsViewController *locationDetailsViewController = (LocationDetailsViewController *)navigationController.topViewController;
         locationDetailsViewController.coordinate = _location.coordinate;
         locationDetailsViewController.placemark = _placemark;
+        locationDetailsViewController.managedObjectContext = self.managedObjectContext;
     }
 }
 
@@ -150,13 +151,27 @@
 - (void)startLocationManager
 {
     if ([CLLocationManager locationServicesEnabled]) {
+        CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+        NSLog(@"status: %d", status);
         _locationManager.delegate = self;
-        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        
         [_locationManager startUpdatingLocation];
+        
+        if ([_locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [_locationManager requestWhenInUseAuthorization];
+        }
+
+        
         _updatingLocation = YES;
         
         [self performSelector:@selector(didTimeOut:) withObject:nil afterDelay:10];
     }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    NSLog(@"change status: %d", status);
 }
 
 - (void)stopLocationManager

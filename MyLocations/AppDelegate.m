@@ -7,10 +7,20 @@
 //
 
 #import "AppDelegate.h"
+#import <CoreData/CoreData.h>
+#import "CurrentLocationViewController.h"
 #if DEBUG
 // FLEX should only be compiled and used in debug builds.
 #import "FLEXManager.h"
 #endif
+
+@interface AppDelegate ()
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@end
 
 
 @implementation AppDelegate
@@ -22,6 +32,11 @@
     // This call shows the FLEX toolbar if it's not already shown.
     [[FLEXManager sharedManager] showExplorer];
 #endif
+    
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    CurrentLocationViewController *currentLocationViewController = tabBarController.viewControllers[0];
+    currentLocationViewController.managedObjectContext = self.managedObjectContext;
+    
     return YES;
 }
 							
@@ -50,6 +65,56 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Core Data
+- (NSManagedObjectModel *)managedObjectModel
+{
+    if (_managedObjectModel == nil) {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"DataModel" ofType:@"momd"];
+        NSURL *fileUrl = [NSURL fileURLWithPath:filePath];
+        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:fileUrl];
+    }
+    
+    return _managedObjectModel;
+}
+
+- (NSString *)documentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths lastObject];
+    return documentsDirectory;
+}
+
+- (NSString *)dataStorePath
+{
+    return [[self documentsDirectory] stringByAppendingPathComponent:@"DataStore.sqlite"];
+}
+
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
+{
+    if (_persistentStoreCoordinator == nil) {
+        NSError *error;
+        _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+        if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:[self dataStorePath]] options:nil error:&error]) {
+            NSLog(@"Error adding persistent store: %@, %@", error, error.userInfo);
+            abort();
+        }
+    }
+    
+    return _persistentStoreCoordinator;
+}
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+    if (_managedObjectContext == nil) {
+        if (self.persistentStoreCoordinator) {
+            _managedObjectContext = [[NSManagedObjectContext alloc] init];
+            [_managedObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+        }
+    }
+    
+    return _managedObjectContext;
 }
 
 @end

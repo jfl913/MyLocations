@@ -74,7 +74,10 @@
 		01CE8241199112D800A6617E /* FLEXHierarchyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CE820E199112D800A6617E /* FLEXHierarchyTableViewCell.m */; };
 		01CE8242199112D800A6617E /* FLEXHierarchyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CE8210199112D800A6617E /* FLEXHierarchyTableViewController.m */; };
 		01CE8243199112D800A6617E /* FLEXImagePreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CE8212199112D800A6617E /* FLEXImagePreviewViewController.m */; };
+		01D0B59919AB7A00003D6E98 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D0B59819AB7A00003D6E98 /* Location.m */; };
 		01F018FC1976C1CB002B8314 /* HudView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F018FB1976C1CB002B8314 /* HudView.m */; };
+		01F8FE1219A242C700FB231B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F8FE1119A242C700FB231B /* CoreData.framework */; };
+		01F8FE1519A243F000FB231B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01F8FE1319A243F000FB231B /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,8 +216,12 @@
 		01CE8210199112D800A6617E /* FLEXHierarchyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXHierarchyTableViewController.m; sourceTree = "<group>"; };
 		01CE8211199112D800A6617E /* FLEXImagePreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXImagePreviewViewController.h; sourceTree = "<group>"; };
 		01CE8212199112D800A6617E /* FLEXImagePreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXImagePreviewViewController.m; sourceTree = "<group>"; };
+		01D0B59719AB7A00003D6E98 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		01D0B59819AB7A00003D6E98 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		01F018FA1976C1CB002B8314 /* HudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudView.h; sourceTree = "<group>"; };
 		01F018FB1976C1CB002B8314 /* HudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HudView.m; sourceTree = "<group>"; };
+		01F8FE1119A242C700FB231B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		01F8FE1419A243F000FB231B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F8FE1219A242C700FB231B /* CoreData.framework in Frameworks */,
 				013BA1F9190E3BC10003C9E2 /* CoreLocation.framework in Frameworks */,
 				013BA1C3190CED9C0003C9E2 /* CoreGraphics.framework in Frameworks */,
 				013BA1C5190CED9C0003C9E2 /* UIKit.framework in Frameworks */,
@@ -264,6 +272,7 @@
 		013BA1BF190CED9C0003C9E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01F8FE1119A242C700FB231B /* CoreData.framework */,
 				013BA1F8190E3BC10003C9E2 /* CoreLocation.framework */,
 				013BA1C0190CED9C0003C9E2 /* Foundation.framework */,
 				013BA1C2190CED9C0003C9E2 /* CoreGraphics.framework */,
@@ -291,6 +300,9 @@
 				0153D330192EF7C6000841FB /* CategoryPickerViewController.m */,
 				013BA1DB190CED9C0003C9E2 /* Images.xcassets */,
 				013BA1C7190CED9C0003C9E2 /* Supporting Files */,
+				01F8FE1319A243F000FB231B /* DataModel.xcdatamodeld */,
+				01D0B59719AB7A00003D6E98 /* Location.h */,
+				01D0B59819AB7A00003D6E98 /* Location.m */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -544,6 +556,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = jfl913;
 				TargetAttributes = {
+					013BA1BC190CED9C0003C9E2 = {
+						DevelopmentTeam = RUL584JQBV;
+					};
 					013BA1E0190CED9C0003C9E2 = {
 						TestTargetID = 013BA1BC190CED9C0003C9E2;
 					};
@@ -620,6 +635,7 @@
 				01CE821B199112D800A6617E /* FLEXArgumentInputSwitchView.m in Sources */,
 				01CE823A199112D800A6617E /* FLEXSetExplorerViewController.m in Sources */,
 				01CE8219199112D800A6617E /* FLEXArgumentInputStringView.m in Sources */,
+				01D0B59919AB7A00003D6E98 /* Location.m in Sources */,
 				01CE8239199112D800A6617E /* FLEXObjectExplorerViewController.m in Sources */,
 				01CE821E199112D800A6617E /* FLEXArgumentInputViewFactory.m in Sources */,
 				01CE821F199112D800A6617E /* FLEXDefaultEditorViewController.m in Sources */,
@@ -627,6 +643,7 @@
 				01CE823E199112D800A6617E /* FLEXResources.m in Sources */,
 				01CE8237199112D800A6617E /* FLEXImageExplorerViewController.m in Sources */,
 				01CE8236199112D800A6617E /* FLEXGlobalsTableViewControllerEntry.m in Sources */,
+				01F8FE1519A243F000FB231B /* DataModel.xcdatamodeld in Sources */,
 				01CE8222199112D800A6617E /* FLEXIvarEditorViewController.m in Sources */,
 				01CE8220199112D800A6617E /* FLEXFieldEditorView.m in Sources */,
 				01CE8217199112D800A6617E /* FLEXArgumentInputNotSupportedView.m in Sources */,
@@ -774,10 +791,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyLocations/MyLocations-Prefix.pch";
 				INFOPLIST_FILE = "MyLocations/MyLocations-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -787,10 +807,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyLocations/MyLocations-Prefix.pch";
 				INFOPLIST_FILE = "MyLocations/MyLocations-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -866,6 +889,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		01F8FE1319A243F000FB231B /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				01F8FE1419A243F000FB231B /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 01F8FE1419A243F000FB231B /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 013BA1B5190CED9C0003C9E2 /* Project object */;
 }

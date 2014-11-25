@@ -37,6 +37,8 @@
     CurrentLocationViewController *currentLocationViewController = tabBarController.viewControllers[0];
     currentLocationViewController.managedObjectContext = self.managedObjectContext;
     
+    NSLog(@"test: %s\n%d", __FILE__,__LINE__);
+    
     return YES;
 }
 							

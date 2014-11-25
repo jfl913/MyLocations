@@ -11,17 +11,17 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3402EFC67325E5D91447764AA60573B82E816A20</key>
-		<string>ssh://github.com/jfl913/MyLocations.git</string>
+		<string>github.com:jfl913/MyLocations.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MyLocations.xcodeproj/project.xcworkspace</string>
+	<string>MyLocations.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3402EFC67325E5D91447764AA60573B82E816A20</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/jfl913/MyLocations.git</string>
+	<string>github.com:jfl913/MyLocations.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

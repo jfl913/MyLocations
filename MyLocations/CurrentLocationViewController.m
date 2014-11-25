@@ -254,11 +254,11 @@
             _performingReverseGeocoding = YES;
             
             [_geocoder reverseGeocodeLocation:_location completionHandler:^(NSArray *placemarks, NSError *error){
-                NSLog(@"*** Found placemarks: %@, error: %@", placemarks, error);
+//                NSLog(@"*** Found placemarks: %@, error: %@", placemarks, error);
                 
                 _lastGeocodingError = error;
                 if (error == nil && [placemarks count] > 0) {
-                    _placemark = [placemarks lastObject];
+//                    _placemark = [placemarks lastObject];
                 }else{
                     _placemark = nil;
                 }

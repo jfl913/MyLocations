@@ -14,7 +14,9 @@
 #import "FLEXManager.h"
 #endif
 
-@interface AppDelegate ()
+//static NSString * const ManagedObjectContextSaveDidFailNotification = @"ManagedObjectContextSaveDidFailNotification";
+
+@interface AppDelegate () <UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
@@ -37,9 +39,26 @@
     CurrentLocationViewController *currentLocationViewController = tabBarController.viewControllers[0];
     currentLocationViewController.managedObjectContext = self.managedObjectContext;
     
-    NSLog(@"test: %s\n%d", __FILE__,__LINE__);
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fatalCoreDataError:) name:ManagedObjectContextSaveDidFailNotification object:nil];
     
     return YES;
+}
+
+- (void)fatalCoreDataError:(NSNotification *)notification
+{
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:@"Internal Error"
+                              message:@"Error"
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles: nil];
+    [alertView show];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    abort();
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

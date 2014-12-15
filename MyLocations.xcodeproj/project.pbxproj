@@ -75,6 +75,7 @@
 		01CE8242199112D800A6617E /* FLEXHierarchyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CE8210199112D800A6617E /* FLEXHierarchyTableViewController.m */; };
 		01CE8243199112D800A6617E /* FLEXImagePreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CE8212199112D800A6617E /* FLEXImagePreviewViewController.m */; };
 		01D0B59919AB7A00003D6E98 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D0B59819AB7A00003D6E98 /* Location.m */; };
+		01D2B1841A38934B00EAA333 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D2B1831A38934B00EAA333 /* LocationsViewController.m */; };
 		01F018FC1976C1CB002B8314 /* HudView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F018FB1976C1CB002B8314 /* HudView.m */; };
 		01F8FE1219A242C700FB231B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F8FE1119A242C700FB231B /* CoreData.framework */; };
 		01F8FE1519A243F000FB231B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01F8FE1319A243F000FB231B /* DataModel.xcdatamodeld */; };
@@ -218,6 +219,8 @@
 		01CE8212199112D800A6617E /* FLEXImagePreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXImagePreviewViewController.m; sourceTree = "<group>"; };
 		01D0B59719AB7A00003D6E98 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		01D0B59819AB7A00003D6E98 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		01D2B1821A38934B00EAA333 /* LocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsViewController.h; sourceTree = "<group>"; };
+		01D2B1831A38934B00EAA333 /* LocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsViewController.m; sourceTree = "<group>"; };
 		01F018FA1976C1CB002B8314 /* HudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudView.h; sourceTree = "<group>"; };
 		01F018FB1976C1CB002B8314 /* HudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HudView.m; sourceTree = "<group>"; };
 		01F8FE1119A242C700FB231B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -298,6 +301,8 @@
 				01BC4851191F970000B08D7D /* LocationDetailsViewController.m */,
 				0153D32F192EF7C6000841FB /* CategoryPickerViewController.h */,
 				0153D330192EF7C6000841FB /* CategoryPickerViewController.m */,
+				01D2B1821A38934B00EAA333 /* LocationsViewController.h */,
+				01D2B1831A38934B00EAA333 /* LocationsViewController.m */,
 				013BA1DB190CED9C0003C9E2 /* Images.xcassets */,
 				013BA1C7190CED9C0003C9E2 /* Supporting Files */,
 				01F8FE1319A243F000FB231B /* DataModel.xcdatamodeld */,
@@ -642,6 +647,7 @@
 				01CE8216199112D800A6617E /* FLEXArgumentInputJSONObjectView.m in Sources */,
 				01CE823E199112D800A6617E /* FLEXResources.m in Sources */,
 				01CE8237199112D800A6617E /* FLEXImageExplorerViewController.m in Sources */,
+				01D2B1841A38934B00EAA333 /* LocationsViewController.m in Sources */,
 				01CE8236199112D800A6617E /* FLEXGlobalsTableViewControllerEntry.m in Sources */,
 				01F8FE1519A243F000FB231B /* DataModel.xcdatamodeld in Sources */,
 				01CE8222199112D800A6617E /* FLEXIvarEditorViewController.m in Sources */,
